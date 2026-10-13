@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-export const BOOKING_URL = 'https://beresilient.redeemfm.com/email-order'
+export const BOOKING_URL = '/order'
 
 export function ArrowIcon({ size = 20 }: { size?: number }) {
   return (
