@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+  --white: #ffffff;
+  --black: #000000;
+  --muted-ink: #444444;
+  --sage: #84a85b;
+  --sage-ink: #5e7e3a;
+  --sage-soft: #e9efe1;
+  --linen: #e4dac9;
+  --linen-soft: #f4f0e9;
+  --sun: #fdd572;
+  --sky: #6ca9ed;
+
+  --background: var(--white);
+  --foreground: var(--black);
+  --card: var(--white);
+  --card-foreground: var(--black);
+  --popover: var(--white);
+  --popover-foreground: var(--black);
+  --primary: var(--sage);
+  --primary-foreground: var(--black);
+  --secondary: var(--linen);
+  --secondary-foreground: var(--black);
+  --muted: var(--linen-soft);
+  --muted-foreground: var(--muted-ink);
+  --accent: var(--sun);
+  --accent-foreground: var(--black);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgb(0 0 0 / 12%);
+  --input: rgb(0 0 0 / 12%);
+  --ring: var(--sage-ink);
+  --radius: 1.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-muted: var(--muted-ink);
+  --color-sage: var(--sage);
+  --color-sage-ink: var(--sage-ink);
+  --color-sage-soft: var(--sage-soft);
+  --color-linen: var(--linen);
+  --color-linen-soft: var(--linen-soft);
+  --color-sun: var(--sun);
+  --color-sky: var(--sky);
+
+  --font-display: var(--font-montserrat), 'Montserrat', sans-serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
+
+  --text-xs: 13px;
+  --text-sm: 15px;
+  --text-base: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 44px;
+  --text-4xl: 56px;
+  --text-5xl: 72px;
+  --text-6xl: 88px;
+
+  --font-weight-heavy: 800;
+
+  --tracking-tight: -0.035em;
+  --tracking-snug: -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.14em;
+
+  --leading-small: 22px;
+  --leading-body: 28px;
+  --leading-large: 32px;
+
+  --container-narrow: 800px;
+  --container-content: 1120px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .announcement-bar {
+    display: none;
+  }
+
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
