@@ -6,15 +6,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async redirects() {
-    return [
-      {
-        source: '/order',
-        destination: 'https://beresilient.redeemfm.com/email-order',
-        permanent: false,
-      },
-    ]
-  },
 }
 
 export default nextConfig
