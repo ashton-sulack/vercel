@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckIcon } from '@/components/landing/primitives'
 
-export function OrderHeader() {
+export function OrderHeader({ homeHref = '/' }: { homeHref?: string }) {
   return (
     <header>
       <div className="announcement-bar flex items-center justify-center gap-3 bg-linen px-6 py-3.5">
@@ -10,7 +10,7 @@ export function OrderHeader() {
         <p className="text-sm font-bold leading-5 -tracking-snug text-black">100% secure checkout for U.S. residents</p>
       </div>
       <div className="flex flex-col items-center gap-6 bg-linen-soft px-5 pt-8 md:gap-7 md:pt-10">
-        <Link href="/" aria-label="Be Resilient home">
+        <Link href={homeHref} aria-label="Be Resilient home">
           <Image
             src="/images/logo.webp"
             alt="Be Resilient"
