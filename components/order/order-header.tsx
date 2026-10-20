@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CheckIcon } from '@/components/landing/primitives'
 
-export function OrderHeader({ homeHref = '/' }: { homeHref?: string }) {
+export function OrderHeader({ homeHref = '/v1' }: { homeHref?: string }) {
   return (
     <header>
       <div className="announcement-bar flex items-center justify-center gap-3 bg-linen px-6 py-3.5">

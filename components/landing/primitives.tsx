@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-export const BOOKING_URL = '/order'
+export const BOOKING_URL = '/v1-order'
 
 export function ArrowIcon({ size = 20 }: { size?: number }) {
   return (
