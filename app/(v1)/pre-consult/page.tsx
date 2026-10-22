@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Script from 'next/script'
+import { CheckIcon } from '@/components/landing/primitives'
 import type { Metadata } from 'next'
 import { SiteFooter } from '@/components/landing/closing'
 import { BookingFlowHeader } from '@/components/order/booking-flow-header'
@@ -37,7 +38,7 @@ export default function PreConsultPage() {
                 'Skip anything you would rather talk through on the call',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-base font-medium leading-6 text-black">
-                  <span aria-hidden="true" className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-sage text-[12px] font-bold">✓</span>
+                  <span aria-hidden="true" className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-sage text-black"><CheckIcon size={11} strokeWidth={3} /></span>
                   <span>{item}</span>
                 </li>
               ))}

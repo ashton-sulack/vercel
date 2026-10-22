@@ -17,10 +17,8 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 export function BookingFlowRedirect({ stage }: BookingFlowRedirectProps) {
   useEffect(() => {
     let hasRedirected = false
-    console.log('[v0] booking flow listener active', stage)
 
     function handleMessage(event: MessageEvent<unknown>) {
-      console.log('[v0] booking flow message', { stage, origin: event.origin, dataType: typeof event.data })
       if (hasRedirected) return
 
       if (stage === 'order') {
