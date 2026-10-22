@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import { BookingFlowRedirect } from '@/components/order/booking-flow-redirect'
 
 const formId = 'vDVqj3XTQUXVGm81hJy4'
 
@@ -111,6 +112,7 @@ function ConsultForm() {
 export default function OrderPage() {
   return (
     <div className="br-order [font-synthesis:none] w-full max-w-[1440px] mx-auto flex h-fit flex-col overflow-x-clip bg-white text-black antialiased">
+      <BookingFlowRedirect stage="order" />
       <div className="order-topbar flex w-full items-center justify-center bg-linen px-5 py-3 text-center sm:px-12">
         <p className="text-sm font-bold leading-5 text-black">100% secure checkout for U.S. residents</p>
       </div>

@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import { BookingFlowRedirect } from './booking-flow-redirect'
 
 const FORM_ID = 'vDVqj3XTQUXVGm81hJy4'
 const FORM_NAME = 'Consult Form July 2026'
@@ -50,6 +51,7 @@ export function OrderForm() {
         />
       </div>
 
+      <BookingFlowRedirect stage="order" />
       <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
     </section>
   )
