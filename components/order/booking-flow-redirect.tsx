@@ -10,6 +10,16 @@ const ORDER_FORM_FRAME_ID = 'inline-vDVqj3XTQUXVGm81hJy4'
 const PRE_CONSULT_FORM_ID = '0d6c7339-db0d-4ada-8953-cb5373053efe'
 const HUBSPOT_PORTAL_ID = '244927881'
 
+function isOrderFormSuccessMessage(value: unknown) {
+  return (
+    value === 'formSubmitted' ||
+    (Array.isArray(value) &&
+      value[0] === 'set-sticky-contacts' &&
+      value[1] === `embedded_iframe_${ORDER_FORM_FRAME_ID}` &&
+      value[2] === ORDER_FORM_FRAME_ID)
+  )
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null
 }
@@ -23,10 +33,23 @@ export function BookingFlowRedirect({ stage }: BookingFlowRedirectProps) {
 
       if (stage === 'order') {
         const frame = document.getElementById(ORDER_FORM_FRAME_ID) as HTMLIFrameElement | null
+        let hostname = ''
+
+        try {
+          hostname = new URL(event.origin).hostname
+        } catch {
+          return
+        }
+
+        const isLeadConnectorOrigin =
+          hostname === 'api.leadconnectorhq.com' ||
+          hostname.endsWith('.leadconnectorhq.com') ||
+          hostname.endsWith('.msgsndr.com')
+
         if (
-          event.origin === 'https://api.leadconnectorhq.com' &&
+          isLeadConnectorOrigin &&
           event.source === frame?.contentWindow &&
-          event.data === 'formSubmitted'
+          isOrderFormSuccessMessage(event.data)
         ) {
           hasRedirected = true
           window.location.assign('/calendar')
